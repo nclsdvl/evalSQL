@@ -57,7 +57,9 @@ HAVING COUNT(*) > 1;
 ------------------------------------------------------------------------------------------------------------
 -- 2. supprimer les doublons
 ------------------------------------------------------------------------------------------------------------
-ALTER IGNORE TABLE client_0 ADD UNIQUE INDEX(id, item_price, product_family, product_type, buying_date, buyer_birthday_date, purchase_count); 
+ALTER IGNORE TABLE client_0 ADD UNIQUE INDEX(id, item_price, product_family, product_type, buying_date, buyer_birthday_date, purchase_count);
+
+-- reste 100005 lignes
 
 ------------------------------------------------------------------------------------------------------------
 -- 3. combien de vendeurs étrangers avons-nous 
@@ -111,7 +113,7 @@ CREATE TABLE `vendeur3` AS (
 -- 6. quel est le montant total des articles vendus par famille de produits
 ------------------------------------------------------------------------------------------------------------
 
--- recupération des plages de nombre d'objets achetés :
+-- recupération des plages de nombre d'objets achetés, et affectation d'un nbr moyen :
 
 SELECT distinct purchase_count FROM `client_0`;
 
@@ -123,7 +125,7 @@ SELECT distinct purchase_count FROM `client_0`;
 -- 20<50        = 35
 
 
--- recupération des plages de prix :
+-- recupération des plages de prix et affectation d'un prix moyen:
 
 SELECT distinct item_price FROM `client_0` ;
 
